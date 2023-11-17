@@ -7,15 +7,20 @@ const updatesattusById = async (req, res, next) => {
   const { teacherId } = req.body;
   try {
     const updateQue = await statusService.updateStatusById(req.params.id, req.body);
+ console.log("++++++++++++++",updateQue[0].status)
 
     if (!updateQue) {
       return HttpResponseHandler.success(req, res, updateQue);
     }
-    const data={updateQue,meetinflink : "myeduc.ddns.net"}
-    //  if (updateQue) {
-    //   updateQue.meetinflink = "myeduc.ddns.net";
+    let data={updateQue}
+    if(updateQue[0].status=="Rejectecd"){
+      return HttpResponseHandler.success(req, res, data);
+    }
+    // else{
+
     // }
-//  updateQue.meetinflink="myeduc.ddns.net";
+     data={updateQue,meetinflink : "myeduc.ddns.net"}
+   
  console.log("++++++++++++++",data)
     return HttpResponseHandler.success(req, res, data);
 

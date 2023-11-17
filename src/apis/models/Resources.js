@@ -7,7 +7,7 @@ const resourceSchema = new mongoose.Schema({
         // required: true
     },
     subject: {
-        type:string
+        type:String
     },
     language: {
         type:String
