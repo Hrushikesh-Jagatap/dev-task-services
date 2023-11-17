@@ -8,16 +8,21 @@ const queschema = new mongoose.Schema({
   status:String,
   duration:String,
   studnetid:String,
+  name:{type:String},
+    profileimage:{type:String}, 
   req_teacherid:[{
     teacherid:String,
     status:{
      type:String,
     default:"requested"
     },
+    
     flag:{type:Boolean,default:true},
+     
   }],
   review:String,
-});
+},
+{ timestamps: true }); 
 
 const que = mongoose.model('que', queschema);
 
