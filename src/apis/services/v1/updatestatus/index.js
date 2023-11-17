@@ -64,7 +64,7 @@ const mongoose = require('mongoose');
 // Service function t1o update an Exam by ID
 const updateStatusById = async (id, data) => {
   try {
-    const { teacherid, status } = data.req_teacherid[0];
+    const { teacherid, status } = data.req_teacherid;
     const mongooseId = mongoose.Types.ObjectId(id);
 
     // Find the existing document by ID
