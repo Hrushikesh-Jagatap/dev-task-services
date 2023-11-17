@@ -8,14 +8,15 @@ const queschema = new mongoose.Schema({
   status:String,
   duration:String,
   studnetid:String,
+  name:{type:String},
+    profileimage:{type:String}, 
   req_teacherid:[{
     teacherid:String,
     status:{
      type:String,
     default:"requested"
     },
-    name:{type:String},
-    profileimage:{type:String}, 
+    
     flag:{type:Boolean,default:true},
      
   }],

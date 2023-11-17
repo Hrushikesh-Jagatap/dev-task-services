@@ -74,12 +74,13 @@ const createQue = async (queData) => {
       const abc = await getStudent(studentid);
       const name = abc.data[0].personalDetails?.first_name;
       const profileimage = abc.data[0].personalDetails?.profileImage;
-
-      const matchingReqTeacherId = req_teacherid.find(reqTeacherId => reqTeacherId.teacherid === teacherId);
-      if (matchingReqTeacherId) {
-        matchingReqTeacherId.name = name;
-        matchingReqTeacherId.profileimage = profileimage;
-      }
+queData.name=name;
+queData.profileimage=profileimage;
+      // const matchingReqTeacherId = req_teacherid.find(reqTeacherId => reqTeacherId.teacherid === teacherId);
+      // if (matchingReqTeacherId) {
+      //   matchingReqTeacherId.name = name;
+      //   matchingReqTeacherId.profileimage = profileimage;
+      // }
     }
 
     queData.req_teacherid = req_teacherid;
