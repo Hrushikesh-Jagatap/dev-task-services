@@ -14,10 +14,14 @@ const queschema = new mongoose.Schema({
      type:String,
     default:"requested"
     },
+    name:{type:String},
+    profileimage:{type:String}, 
     flag:{type:Boolean,default:true},
+     
   }],
   review:String,
-});
+},
+{ timestamps: true }); 
 
 const que = mongoose.model('que', queschema);
 
