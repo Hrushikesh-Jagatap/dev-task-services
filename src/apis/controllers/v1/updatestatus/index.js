@@ -11,8 +11,13 @@ const updatesattusById = async (req, res, next) => {
     if (!updateQue) {
       return HttpResponseHandler.success(req, res, updateQue);
     }
-
-    return HttpResponseHandler.success(req, res, updateQue);
+    const data={updateQue,meetinflink : "myeduc.ddns.net"}
+    //  if (updateQue) {
+    //   updateQue.meetinflink = "myeduc.ddns.net";
+    // }
+//  updateQue.meetinflink="myeduc.ddns.net";
+ console.log("++++++++++++++",data)
+    return HttpResponseHandler.success(req, res, data);
 
   } catch (error) {
     next(error);

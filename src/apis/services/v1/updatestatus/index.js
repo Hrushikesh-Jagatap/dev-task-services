@@ -68,7 +68,7 @@ const updateStatusById = async (id, data) => {
     const mongooseId = mongoose.Types.ObjectId(id);
 
     // Find the existing document by ID
-    const existingDocument = await statusData.findById(mongooseId);
+    const existingDocument = await statusData.findById({_id:mongooseId});
 
     if (!existingDocument) {
       console.log('Document not found.');
