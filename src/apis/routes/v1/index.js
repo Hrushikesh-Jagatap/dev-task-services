@@ -38,10 +38,13 @@ const publishedResourceById = require('./publishedResourceById');
 
 const getAllResourcesByUserId = require('./getAllResourcesByUserId');
 
- const createque = require('./createque');
-const getque = require('./getque');
 const getquebystudentid = require('./getquebystudentid');
+
 const getquebyteacherid = require('./getquebyteacherid');
+
+const createque = require('./createque');
+
+const getque = require('./getque');
 
 const updateque = require('./updateque');
 const updatestatus = require('./updatestatus');
@@ -98,13 +101,14 @@ router.use('/', getAssignByBatchId)
 // route to get Exam Details By Btachid
 router.use('/', getExamDetaialsByBatchId);
 
- router.use('/', createque);
-router.use('/',getque);
-router.use('/',getquebystudentid);
-router.use('/',getquebyteacherid);
+router.use('/', createque);
 
-router.use('/',updateque);
-router.use('/',updatestatus);
+router.use('/', getque);
 
+router.use('/', getquebystudentid);
+
+router.use('/', getquebyteacherid);
+
+router.use('/', updateque);
 
 module.exports = router;
