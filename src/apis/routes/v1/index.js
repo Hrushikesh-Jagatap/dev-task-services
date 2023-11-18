@@ -47,9 +47,10 @@ const createque = require('./createque');
 const getque = require('./getque');
 
 const updateque = require('./updateque');
+
 const updatestatus = require('./updatestatus');
 
-
+router.use('/', updatestatus)
 // route to get All Resources By userId.
 router.use('/', getAllResourcesByUserId);
 
