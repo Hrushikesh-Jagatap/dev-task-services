@@ -49,6 +49,7 @@ const getque = require('./getque');
 const updateque = require('./updateque');
 
 const updatestatus = require('./updatestatus');
+const CreateExamSeries = require('./CreateExamSeries');
 
 router.use('/', updatestatus)
 // route to get All Resources By userId.
@@ -111,5 +112,7 @@ router.use('/', getquebystudentid);
 router.use('/', getquebyteacherid);
 
 router.use('/', updateque);
+router.use('/', CreateExamSeries);
+
 
 module.exports = router;
