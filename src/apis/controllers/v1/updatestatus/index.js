@@ -1,6 +1,6 @@
 const statusService = require('@root/src/apis/services/v1/updatestatus');
 const { HttpResponseHandler } = require('intelli-utility');
-
+const Que = require('@root/src/apis/models/que');
 // update /exam
 const updatesattusById = async (req, res, next) => {
 
@@ -16,12 +16,21 @@ const updatesattusById = async (req, res, next) => {
     if(updateQue[0].status=="Rejectecd"){
       return HttpResponseHandler.success(req, res, data);
     }
-    // else{
+    const meetingUrl = "myeduc.ddns.net";
 
-    // }
-     data={updateQue,meetinflink : "myeduc.ddns.net"}
-   
- console.log("++++++++++++++",data)
+const result = await Que.findOneAndUpdate(
+  { "req_teacherid._id": updateQue[0]._id },
+  { $set: { "req_teacherid.$.meetingurl": meetingUrl } },
+  { new: true }
+);
+
+    console.log(result);
+
+    // Update the data with the meeting link
+    data = { updateQue, meetinflink:meetingUrl };
+    console.log("++++++++++++++", data);
+
+    // Respond with the updated data
     return HttpResponseHandler.success(req, res, data);
 
   } catch (error) {
