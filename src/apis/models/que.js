@@ -12,6 +12,7 @@ const queschema = new mongoose.Schema({
     profileimage:{type:String}, 
   req_teacherid:[{
     teacherid:String,
+    meetingurl:{type:String,default:null},
     status:{
      type:String,
     default:"requested"

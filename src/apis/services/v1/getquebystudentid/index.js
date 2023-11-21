@@ -6,7 +6,7 @@ const getquebystudentid = async (studnetids) => {
   try {
     console.log(studnetids);
   
-        const Que = await QueData.find({ studnetid: studnetids });
+        const Que = await QueData.find({ studnetid: studnetids }).sort({updatedAt:-1});
 
     return Que;
   } catch (error) {

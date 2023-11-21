@@ -77,6 +77,7 @@ const updateStatusById = async (id, data) => {
 
     // Update the status if conditions are met
      existingDocument.req_teacherid.forEach(item => {
+      console.log('Document not found.',item);
       if (item.teacherid == teacherid && item.status == 'requested' && item.flag == true) {
         item.status = status;
       }
