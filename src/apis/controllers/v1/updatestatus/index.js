@@ -16,7 +16,9 @@ const updatesattusById = async (req, res, next) => {
     if(updateQue[0].status=="Rejectecd"){
       return HttpResponseHandler.success(req, res, data);
     }
-    const meetingUrl = "https://myeduc.ddns.net/BlindBenchmarksTearTemporarily";
+        let abc = (updateQue[0]._id).toString();
+const meetingUrl = `https://myeduc.ddns.net/${abc}`;
+    // const meetingUrl = "https://myeduc.ddns.net/BlindBenchmarksTearTemporarily";
 
 const result = await Que.findOneAndUpdate(
   { "req_teacherid._id": updateQue[0]._id },
