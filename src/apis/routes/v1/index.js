@@ -49,8 +49,14 @@ const getque = require('./getque');
 const updateque = require('./updateque');
 
 const updatestatus = require('./updatestatus');
+
 const CreateExamSeries = require('./CreateExamSeries');
+
 const GetAllResource = require('./GetAllResource');
+
+const PanelExam = require('./PanelExam');
+
+router.use('/', PanelExam);
 
 
 router.use('/', updatestatus)
