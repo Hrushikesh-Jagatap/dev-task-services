@@ -51,6 +51,7 @@ const updateque = require('./updateque');
 const updatestatus = require('./updatestatus');
 const CreateExamSeries = require('./CreateExamSeries');
 const GetAllResource = require('./GetAllResource');
+const getResourceBysubject = require('./getResourceBysubject');
 
 
 router.use('/', updatestatus)
@@ -62,6 +63,7 @@ router.use('/', publishedResourceById);
 
 //Route to get Resource By Id
 router.use('/', getResourceById);
+router.use('/', getResourceBysubject);
 
 //Route to update Resource By Id
 router.use('/', updateResourceById)
