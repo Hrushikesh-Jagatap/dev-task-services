@@ -1,21 +1,39 @@
 const ResourceData = require('@models/Resources');
 const { default: mongoose } = require('mongoose');
-
+const { getStudentsBySubjectAndClass } = require('@services/v1/getStudentsBySubjectAndClass');
+const { notifyStudentsForResourceUpdation, pushNotification } = require('@services/v1/Notification')
 
 // Service function to publish a Resource by ID
 const publishResourceById = async (resourceId) => {
   try {
-    let publishStatus = 'true';
 
-    const resource = await ResourceData.findByIdAndUpdate({ _id: mongoose.Types.ObjectId(resourceId) }, { publishStatus: publishStatus });
+    let resource = await ResourceData.findById(mongoose.Types.ObjectId(resourceId));
 
-    //send notification to teacher_> userId
-    let className = resource.class
-    const { userId , subject} = resource;
+    if (resource.publishStatus === 'true') {
+      return {
+        message: "ALREADY_YOUR_RESOURCE_IS_PUBLISHED"
+      };
+    } else {
+      //send notification to teacher_> userId
+      const NotificationData = {
+        userId: resource.userId,
+        appName: 'teacherApp',
+        data: {
+          message: `Your Resource has been Added`
+        },
+        body: 'Your Resource has been Added',
+        title: 'Your Resource has been Added'
+      };
 
+      const teacher = await pushNotification(NotificationData) // send  Notification to teacher 
 
-    // class and subject
-    // senmd notification to all student
+      // class and subject // need all student Ids to send Notification
+      const students = await getStudentsBySubjectAndClass(resource.class, resource.subject);
+      // send notification to all student
+      notifyStudentsForResourceUpdation(students);
+      resource.publishStatus = 'true';
+      await resource.save();
+    }
     return resource;
   } catch (error) {
     throw new Error('Failed to publish  Resource');
