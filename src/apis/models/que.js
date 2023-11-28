@@ -19,11 +19,13 @@ const queschema = new mongoose.Schema({
   },
 
   status: {
-    type: String
+    type: String,
+      
   },
 
   duration: {
-    type: String
+    type: String,
+    default:'0'
   },
 
   studnetid: {
@@ -55,7 +57,25 @@ const queschema = new mongoose.Schema({
   review: {
     type: String
   },
+    timelimit:{
+    type:String,
+    default: "20",
+  },
+  numberofqueaskstudent:{
+    type:Number,
+    default: 0,
+  },
+    howmanysubscriptionaskstudentlimit:{
+    type:Number,
+    default: 5,
+  },
+
+
+  howmanytimeleft:{
+  type:Number,
 },
+},
+
   { timestamps: true });
 
 const que = mongoose.model('que', queschema);
