@@ -1,12 +1,12 @@
 const Que = require('@models/que');
 const axios = require('axios');
-const { loadBalancer, SYSTEM_TOKEN } = require('@config');
+const { loadBalancer, SYSTEM_TOKEN ,teacher,student} = require('@config');
 
 const getStudent = async (sid_userId) => {
   try {
     const config = {
       method: 'get',
-      url: `${loadBalancer}/sts/apis/v1/user/${sid_userId}`,
+      url: `${student}/sts/apis/v1/user/${sid_userId}`,
       headers: {
         app_name: 'studentApp',
         app_version_code: '101',
@@ -27,7 +27,7 @@ const getTeacher = async (args) => {
   try {
     const { className, subject, studentid } = args;
     
-    const url = `${loadBalancer}/tms/apis/v1/searchforinstance?className=${className}&subject=${subject}&studentid=${studentid}`;
+    const url = `${teacher}/tms/apis/v1/searchforinstance?className=${className}&subject=${subject}&studentid=${studentid}`;
 
     const config = {
       method: 'get',
