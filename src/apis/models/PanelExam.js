@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PanelExamSchema = new Schema({
+    examName: {
+        type:String
+    },
     userId: {
         type: String
     },
