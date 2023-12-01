@@ -16,23 +16,23 @@ const PanelExamSchema = new Schema({
     },
     examDuration: {
         type: String,
-        required: true
+        // required: true
     },
     language: {
         type: String,
-        required: true
+        // required: true
     },
     numberOfQuestions: {
         type: Number,
-        required: true
+        // required: true
     },
     price: {
         type: Number,
-        required: true
+        // required: true
     },
     questionType: {
         type: String,
-        required: true
+        // required: true
     },
     selectedChapterId: {
         type: String
