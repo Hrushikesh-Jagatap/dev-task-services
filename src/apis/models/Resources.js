@@ -36,13 +36,22 @@ const resourceSchema = new mongoose.Schema({
         type: String,
         // required: true
     },
-    pdfUrl: {
+    Url: {
         type: String,
     },
     publishStatus: {
         type: String,
         default: 'draft',
     },
+    //text(pdf) or video
+     resourcestype:{
+        type: String,
+    },
+     rating:[{
+     sid:String,
+     rating:Number,
+      
+    }],
 
     createdAt: {
         type: Date,
