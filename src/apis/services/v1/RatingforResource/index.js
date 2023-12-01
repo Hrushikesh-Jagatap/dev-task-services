@@ -55,6 +55,9 @@ const updateResourceById = async (resourceId, resourceData) => {
     resource.updatedAt = new Date();
 
     // Save the updated resource back to the database
+      const totalRating = resource.rating.reduce((sum, r) => sum + r.rating, 0);
+    const averageRating = totalRating / resource.rating.length;
+    resource.averageRating = averageRating;
     const updatedResource = await resource.save();
     
     return updatedResource;
