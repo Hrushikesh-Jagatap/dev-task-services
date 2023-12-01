@@ -1,7 +1,7 @@
 const ResourceData = require('@models/Resources');
 const searchResources = async (query) => {
 const {subject,classes,resourcestype,price}=query;
-  const filter = { };
+ const filter = { isdelete:false};
   if (subject) {
     filter["subject"] = new RegExp(subject, 'i');
   }
