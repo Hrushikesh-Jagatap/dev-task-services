@@ -17,6 +17,14 @@ const questionSchema = new mongoose.Schema({
     markPerQues: {
         type: Number
     },
+     createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    updatedAt: {
+        type: Date,
+        default: Date.now
+    }
 });
 const Question = mongoose.model('Question', questionSchema);
 module.exports = Question;
