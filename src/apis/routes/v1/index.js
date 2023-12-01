@@ -63,6 +63,10 @@ const addques = require('./addques');
 
 const getExamQuesDetails = require('./getExamQuesDetails');
 
+const getAllExamDetailsByUserId = require('./getAllExamDetailsByUserId');
+
+router.use('/', getAllExamDetailsByUserId);
+
 router.use('/', getExamQuesDetails);
 
 router.use('/', addques);
