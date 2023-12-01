@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const getResourceDetailsById = async (resourceId) => {
   try {
      const objectId = mongoose.Types.ObjectId(resourceId);
-    const resource = await ResourceData.findOne({ _id:  objectId});
+        const resource = await ResourceData.findOne({ _id:  objectId,isdelete:false });
+
     return resource;
   } catch (error) {
     throw new Error('Failed to get resource Details');
