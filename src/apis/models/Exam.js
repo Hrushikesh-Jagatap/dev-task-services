@@ -1,22 +1,6 @@
 
 const mongoose = require('mongoose');
 
-// Define a schema for the Question model (used within Exam)
-const questionSchema = new mongoose.Schema({
-    questionType: {
-        type: String,
-        // required: true
-    },
-    question: String,
-    level: String,
-    options: [String],
-    correctAnswer: Number, // Store the index of the correct option
-    solution: String,
-    markPerQues: {
-        type: Number
-    },
-
-});
 
 // Define the Exam schema
 const examSchema = new mongoose.Schema({
@@ -71,7 +55,7 @@ const examSchema = new mongoose.Schema({
         type: String
     },
 
-    questions: [questionSchema],
+    questions: [],
 
     publishStatus: {
         type: String,
