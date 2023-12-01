@@ -41,7 +41,7 @@ const publishResourceById = async (resourceId, publishStatus) => {
     //   };
 
       // const teacher = await pushNotification(NotificationData) // send  Notification to teacher 
-    }
+    // }
     resource.publishStatus = publishStatus;
     await resource.save();
     return resource;
