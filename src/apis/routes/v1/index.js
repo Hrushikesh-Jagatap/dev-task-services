@@ -58,6 +58,15 @@ const RatingforResource = require('./RatingforResource');
 
 const PanelExam = require('./PanelExam');
 
+const addques = require('./addques');
+
+const getExamQuesDetails = require('./getExamQuesDetails');
+
+router.use('/', getExamQuesDetails);
+
+router.use('/', addques);
+
+
 router.use('/', PanelExam);
 
 
@@ -123,6 +132,7 @@ router.use('/', getquebystudentid);
 router.use('/', getquebyteacherid);
 
 router.use('/', updateque);
+
 router.use('/', CreateExamSeries);
 router.use('/', GetAllResource);
 
