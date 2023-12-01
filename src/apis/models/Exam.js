@@ -12,7 +12,10 @@ const questionSchema = new mongoose.Schema({
     options: [String],
     correctAnswer: Number, // Store the index of the correct option
     solution: String,
-  
+    markPerQues: {
+        type: Number
+    },
+
 });
 
 // Define the Exam schema
@@ -31,6 +34,10 @@ const examSchema = new mongoose.Schema({
     },
 
     examDuration: {
+        type: String,
+        // required: true
+    },
+    language: {
         type: String,
         // required: true
     },
@@ -56,9 +63,14 @@ const examSchema = new mongoose.Schema({
         type: String
     },
 
+    targetExam: {
+        type: String
+    },
+
     createdBy: {
         type: String
     },
+
     questions: [questionSchema],
 
     publishStatus: {
@@ -73,9 +85,11 @@ const examSchema = new mongoose.Schema({
     totalNoMarks: {
         type: String
     },
-    markPerQues: {
-        type: Number
+
+    examType: {
+        type: String
     },
+
     isDeleted: {
         type: Boolean,
         default: false,
