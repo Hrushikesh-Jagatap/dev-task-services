@@ -1,7 +1,7 @@
 const ResourceData = require('@models/Resources');
 const { default: mongoose } = require('mongoose');
-const { getStudentsBySubjectAndClass } = require('@services/v1/getStudentsBySubjectAndClass');
-const { notifyStudentsForResourceUpdation, pushNotification } = require('@services/v1/Notification')
+// const { getStudentsBySubjectAndClass } = require('@services/v1/getStudentsBySubjectAndClass');
+// const { notifyStudentsForResourceUpdation, pushNotification } = require('@services/v1/Notification')
 
 // Service function to publish a Resource by ID
 const publishResourceById = async (resourceId, publishStatus) => {
