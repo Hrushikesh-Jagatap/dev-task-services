@@ -52,7 +52,13 @@ const resourceSchema = new mongoose.Schema({
      rating:Number,
       
     }],
-
+ averageRating:{
+        type: Number,
+    },
+      isdelete:{
+        type: Boolean,
+        default: false,
+    },
     createdAt: {
         type: Date,
         default: Date.now
