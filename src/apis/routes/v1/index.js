@@ -54,6 +54,7 @@ const CreateExamSeries = require('./CreateExamSeries');
 
 const GetAllResource = require('./GetAllResource');
 const getResourceBysubject = require('./getResourceBysubject');
+const RatingforResource = require('./RatingforResource');
 
 const PanelExam = require('./PanelExam');
 
@@ -125,5 +126,5 @@ router.use('/', updateque);
 router.use('/', CreateExamSeries);
 router.use('/', GetAllResource);
 
-
+router.use('/', RatingforResource);
 module.exports = router;
