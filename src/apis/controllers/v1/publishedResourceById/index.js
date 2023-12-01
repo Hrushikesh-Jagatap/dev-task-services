@@ -5,7 +5,8 @@ const { HttpResponseHandler } = require('intelli-utility');
 // Controller function to get a  resource by userId
 const publishResourceById = async (req, res, next) => {
     try {
-        const Resource = await ResourceService.publishResourceById(req.query.Id);
+        const publishStatus = req.body.publishStatus
+        const Resource = await ResourceService.publishResourceById(req.query.Id, publishStatus);
         
         if (!Resource) {
             return HttpResponseHandler.success(req, res, Resource);
