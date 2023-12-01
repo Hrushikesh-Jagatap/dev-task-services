@@ -2,6 +2,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PanelExamSchema = new Schema({
+    userId: {
+        type: String
+    },
+    publisehdBy: {
+        type: String
+    },
+    createdBy: {
+        type: String
+    },
     examDuration: {
         type: String,
         required: true
@@ -40,8 +49,22 @@ const PanelExamSchema = new Schema({
     totalMarks: {
         type: Number,
         required: true
+    },
+    deleted: {
+        type: Boolean,
+        default: false
+    },
+    publishStatus: {
+        type: Boolean,
+        default: false
+    },
+    markPerQues: {
+        type: Number,
     }
-});
+
+},
+    { timestamps: true },
+);
 
 const PanelExam = mongoose.model('PanelExam', PanelExamSchema);
 
