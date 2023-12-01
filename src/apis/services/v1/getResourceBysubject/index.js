@@ -1,15 +1,16 @@
 const ResourceData = require('@models/Resources');
 
-// Service function to get a single resource by Id
-const getResourceDetailsById = async (sub) => {
+// Service function to get resources by subject
+const getResourceDetailsBySubject = async (sub) => {
   try {
-    const resource = await ResourceData.find({ subject:  sub});
-    return resource;
+    const resources = await ResourceData.find({ subject: sub, isdelete: false });
+    return resources;
   } catch (error) {
-    throw new Error('Failed to get resource Details');
+    console.error('Failed to get resource details:', error);
+    throw new Error('Failed to get resource details');
   }
 };
 
 module.exports = {
-    getResourceDetailsById
-}  
+  getResourceDetailsBySubject,
+};
