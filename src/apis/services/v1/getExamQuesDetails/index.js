@@ -1,15 +1,13 @@
-const express = require('express');
-const router = express.Router();
-
-const getExamQuesDetaialsByIdController = require('@root/src/apis/controllers/v1/getExamQuesDetails');
-
-router.get('/exam-ques',async(req, res, next) => {
+const QuestionData = require('@models/Question');
+// Service function to get a single teacher by ID
+const getExamQuesDetails = async (examId) => {
     try {
-        const result = await getExamQuesDetaialsByIdController.getExamQuesDetails(req, res, next);
-    
+        const exam = await QuestionData.find({ examId: examId });
+        return exam;
     } catch (error) {
-       next(error);
-    }    
-});
-
-module.exports = router;
+        throw new Error('Failed to get exam Details');
+    }
+};
+module.exports = {
+    getExamQuesDetails
+} 
