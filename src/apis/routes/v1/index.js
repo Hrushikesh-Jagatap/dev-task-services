@@ -65,6 +65,14 @@ const getExamQuesDetails = require('./getExamQuesDetails');
 
 const getAllExamDetailsByUserId = require('./getAllExamDetailsByUserId');
 
+const deleteQuesById = require('./deleteQuesById');
+
+const editQuesById = require('./editQuesById');
+
+router.use('/', editQuesById);
+
+router.use('/', deleteQuesById);
+
 router.use('/', getAllExamDetailsByUserId);
 
 router.use('/', getExamQuesDetails);
