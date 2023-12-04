@@ -1,17 +1,26 @@
-const ExamData = require('@models/Exam');
-const PanelExamData = require('@models/PanelExam');
+const ExamService = require('@root/src/apis/services/v1/getAllExamDetailsByUserId');
 
-const getAllExams = async (userId) => {
-  try {
-    const exams = await ExamData.find({ userId });
-    const panelExams = await PanelExamData.find({ userId });
+const { HttpResponseHandler } = require('intelli-utility');
 
-    return { exams, panelExams };
-  } catch (error) {
-    throw error;
-  }
+// Controller function to get a Assignment  by  Batch ID
+const getAllExam = async (req, res, next) => {
+    try {
+        
+        const userId = req.query.userId;
+
+        const resources = await ExamService.getAllExams(userId);
+
+        if (!resources) {
+            return HttpResponseHandler.success(req, res, resources);
+        }
+        
+        return HttpResponseHandler.success(req, res, resources);
+
+    } catch (error) {
+        next(error);
+    }
 };
 
 module.exports = {
-  getAllExams
-};
+    getAllExam
+}  
