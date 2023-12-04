@@ -1,14 +1,17 @@
 const ExamData = require('@models/Exam');
+const PanelExamData = require('@models/PanelExam');
 
-const getAllExam = async (userId) => {
+const getAllExams = async (userId) => {
   try {
-    const examDetails = await ExamData.find({ userId:userId });
-    return examDetails;
+    const exams = await ExamData.find({ userId });
+    const panelExams = await PanelExamData.find({ userId });
+
+    return { exams, panelExams };
   } catch (error) {
     throw error;
   }
 };
 
 module.exports = {
-    getAllExam
+  getAllExams
 };
