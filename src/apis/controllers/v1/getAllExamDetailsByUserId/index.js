@@ -8,7 +8,7 @@ const getAllExam = async (req, res, next) => {
         
         const userId = req.query.userId;
 
-        const resources = await ExamService.getAllExam(userId);
+        const resources = await ExamService.getAllExams(userId);
 
         if (!resources) {
             return HttpResponseHandler.success(req, res, resources);
