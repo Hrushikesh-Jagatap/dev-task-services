@@ -46,6 +46,10 @@ const examSchema = new mongoose.Schema({
     subTopic: {
         type: String
     },
+    price: {
+        type: Number,
+        // required: true
+    },
 
     targetExam: {
         type: String
@@ -54,16 +58,13 @@ const examSchema = new mongoose.Schema({
     createdBy: {
         type: String
     },
-    
-  price: {
-        type: Number,
-        // required: true
-    },
+
     questions: [],
 
     publishStatus: {
         type: String,
-        default: 'draft',
+        enum: ['NEW', 'REQUESTED', 'APPROVED'],
+        default: 'NEW'
     },
     createdAt: {
         type: Date,
