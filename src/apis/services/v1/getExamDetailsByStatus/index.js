@@ -3,12 +3,12 @@ const PanelExamData = require('@models/PanelExam');
 
 const getExamDetailsStatus = async (status) => {
     try {
-        const [examDetails, panelExamDetails] = await Promise.all([
+        const [exams, panelExams] = await Promise.all([
             ExamData.find(status).exec(),
             PanelExamData.find(status).exec(),
         ]);
 
-        return { examDetails, panelExamDetails };
+        return { exams, panelExams };
     } catch (error) {
         console.error('Error in getExamDetailsStatus:', error);
         throw new Error('Failed to get exam details');
