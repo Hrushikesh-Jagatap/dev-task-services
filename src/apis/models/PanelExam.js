@@ -91,10 +91,6 @@ const PanelExamSchema = new Schema({
         type: Boolean,
         default: false
     },
-    publishStatus: {
-        type: Boolean,
-        default: false
-    },
     markPerQues: {
         type: Number,
     }
