@@ -3,11 +3,45 @@ const Schema = mongoose.Schema;
 
 const PanelExamSchema = new Schema({
     examName: {
-        type:String
+        type: String
     },
+
+    exanCreateFrom: {
+        type: String
+    },
+
+    chapter: {
+        type: String,
+    },
+
+    topic: {
+        type: String,
+        required: true,
+    },
+
+    subTopic: {
+        type: String,
+        default: '', // You may adjust this default value based on your requirements
+    },
+
+    subject: {
+        type: String,
+    },
+
+    targetExam: {
+        type: String,
+    },
+
     userId: {
         type: String
     },
+
+    publishStatus: {
+        type: String,
+        enum: ['NEW', 'REQUESTED', 'APPROVED'],
+        default: 'NEW'
+    },
+
     publisehdBy: {
         type: String
     },
@@ -51,7 +85,7 @@ const PanelExamSchema = new Schema({
     },
     totalMarks: {
         type: Number,
-        required: true
+       
     },
     deleted: {
         type: Boolean,
