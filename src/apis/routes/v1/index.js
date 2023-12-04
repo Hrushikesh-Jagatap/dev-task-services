@@ -71,6 +71,10 @@ const editQuesById = require('./editQuesById');
 
 const getExamDetailsByStatus = require('./getExamDetailsByStatus');
 
+const getPanelExamByUserId = require('./getPanelExamByUserId');
+
+router.use('/', getPanelExamByUserId);
+
 router.use('/', getExamDetailsByStatus);
 
 router.use('/', editQuesById);
