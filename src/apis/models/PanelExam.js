@@ -16,7 +16,7 @@ const PanelExamSchema = new Schema({
 
     topic: {
         type: String,
-        required: true,
+    
     },
 
     subTopic: {
