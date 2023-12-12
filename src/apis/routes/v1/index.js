@@ -72,6 +72,7 @@ const editQuesById = require('./editQuesById');
 const getExamDetailsByStatus = require('./getExamDetailsByStatus');
 
 const getPanelExamByUserId = require('./getPanelExamByUserId');
+const GetAllpublishedResource = require('./GetAllpublishedResource');
 
 router.use('/', getPanelExamByUserId);
 
@@ -159,5 +160,6 @@ router.use('/', GetAllResource);
 
 router.use('/', RatingforResource);
 router.use('/', SearchResources);
+router.use('/', GetAllpublishedResource);
 
 module.exports = router;
