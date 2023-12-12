@@ -67,7 +67,7 @@ const queschema = new mongoose.Schema({
   },
     howmanysubscriptionaskstudentlimit:{
     type:Number,
-    default: 5,
+    default: 25,
   },
 
 
